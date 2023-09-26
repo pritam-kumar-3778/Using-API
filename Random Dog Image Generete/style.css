@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: hotpink;
+}
+h1{
+    color: #fff;
+}
+button{
+    background-color: slateblue;
+    color: black;
+    font-size: large;
+    border-radius: 10%;
+
+}
+button:hover{
+    font-size: x-large;
+}
+#Image{
+    margin-bottom: 60px;
+    margin-top: 30px;
+    width: 275px;
+    height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 6px rgb(0, 0, 0.2);
+    overflow: hidden;
+}
