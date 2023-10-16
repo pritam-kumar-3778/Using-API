@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whether App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+        body{
+    background-image: url(https://images.unsplash.com/photo-1514454529242-9e4677563e7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNreXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100px;
+        /* background-attachment: scroll; */
+       
+        background-size:100%;
+}
+.collapse navbar-collapse{
+    background-color: rgb(159, 163, 169);
+}
+h1{
+    font-style: normal;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 70px;
+    /* color: cadetblue; */
+}
+
+
+
+
+
+
+/*Footer part css code */
+.footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(122, 206, 205);
+      padding: 40px 80px;
+    }
+    .footer .copy {
+      color: #fff;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #e71010;
+      padding: 10px 20px;
+    }
+    </style>
+  </head>
+  <body>
+   <!-- Add Date and time html code -->
+        <body onload="clock();">
+    
+            <div style="text-align:center;">
+                📅
+                <b id="t-0">00/00/0000</b>
+                ⏰
+                <b id="t-2">00:00:00</b>
+            </div>
+    <!-- Main part (whether - uppar , search bar,about etc) (tempereture , humidity , wind section) -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="file:///C:/Users/hp/Desktop/VS%20%20code/Technock%20project/Major/About_Whether.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex" role="search">
+          <input
+            id="city"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <br />
+    <h1 class="my_city text-center"><b>Weather of <span id="cityName"></b> </span></h1>
+    <div class="container-fluid">
+      <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Temperature</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"> 
+                    <img src="https://www.clipartkey.com/mpngs/m/97-975633_cartoon-sun-temperature-element-transparent-background-temperature-png.png" alt="Tempereture" width="60%"> <br>
+                    <span id="temp"></span><small class="text-muted fw-light"> &#8451;</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  
+                  <li>Mini temp : <span id="min_temp"></span></li>
+                  <li>Max temp : <span id="max_temp"></span></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Humidity</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                    <img src="https://thumbs.dreamstime.com/b/humidity-icon-vector-eps-file-easy-to-edit-humidity-icon-vector-99878926.jpg" alt="Humidity image" width="80%"> <br>
+                    <span id="humidity"></span><small class="text-muted fw-light">%</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Sun rise : <span id="sunrise"></span></li>
+                  <li>Sun set : <span id="sunset"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Wind</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                    <img src="https://st.depositphotos.com/1269378/2158/v/950/depositphotos_21583193-stock-illustration-windy-day.jpg" alt="wind image" width="95%"> <br>
+                    <span id="wind_speed"></span>
+                  <small class="text-muted fw-light">km/h</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind Degree : <span id="wind_degrees"></span></li>
+                  <li>Feels Like : <span id="feels_like"></span></li>
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="display-6 text-center mb-4">
+          Weather report of other cities
+        </h2>
+
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 10%"></th>
+                <th style="width: 10%">Feels like</th>
+                <th style="width: 10%">Humidity</th>
+                <th style="width: 10%">Max temp</th>
+                <th style="width: 10%">Min temp</th>
+                <th style="width: 10%">Sunrise</th>
+                <th style="width: 10%">Sunset</th>
+                <th style="width: 10%">Temp</th>
+                <th style="width: 10%">Wind degres</th>
+                <th style="width: 10%">Wind speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Tokyo</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">New York</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Washington</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Manhattan</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">San Francisco</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Dubai</th>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <br><br>
+    <!--Footer code-->
+    <footer class="footer">
+        <div class="copy">&copy; <b>Designed by :</b> <br> <br><b>pritam kumar patel</b></div>
+        <div class="bottom-links">
+          <div class="links">
+            <span>Go to Home Page</span>
+            <a href="#">Home</a>
+          
+            <a href="recipient@email.com,recipient2@gmail.com">Contact</a>
+          </div>
+          <div class="links">
+            <span>Social Links</span>
+            <a href="https://www.linkedin.com/in/pritam-kumar-patel-16aa68248/"target="_main">Linkdin<i class="fab fa-linkedin"></i></a>
+           <a href="https://twitter.com/Pritam2667"target="main">Twitter<i class="fab fa-twitter"></i>
+          <!--  <a href="https://www.instagram.com/pritamkumar3778/"target="_main"><i class="fab fa-instagram"></i></a> -->
+          </div>
+        </div>
+      </footer>
+    
+    <script>
+      // JS Code
+//  Date and time js code
+function clock(){
+    window.rt=1000;r=0;
+    document.getElementById('t-0').textContent=new Date().toLocaleDateString(); // today
+    var m=setInterval(function(){
+        if(r>84600){clearInterval(m);}
+        r++;
+        document.getElementById('t-2').textContent=new Date().toLocaleTimeString(); // clock
+    }, window.rt);
+}
+    
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '9cc539eb3emshd01fb60659cef91p134431jsn14b3b03c3b5c',
+            'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        }
+    };
+    const getWeather = (city)=>{
+        cityName.innerHTML = city
+
+    
+        fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+ city, options)
+        .then(response => response.json())
+        .then((response) => {
+            
+            console.log(response)
+            // cloud_pct.innerHTML = response.cloud_pct
+            temp.innerHTML = response.temp
+            feels_like.innerHTML = response.feels_like
+            humidity.innerHTML = response.humidity 
+            min_temp.innerHTML = response.min_temp
+            max_temp.innerHTML = response.max_temp 
+            wind_speed.innerHTML = response.wind_speed 
+            wind_degrees.innerHTML = response.wind_degrees 
+            sunrise.innerHTML = response.sunrise 
+            sunset.innerHTML = response.sunset
+            
+        })
+        .catch(err => console.error(err));
+    }
+    
+    submit.addEventListener("click", (e)=>{
+        e.preventDefault()
+        getWeather(city.value)
+    })
+    
+    getWeather("Delhi")
+    </script>
+  </body>
+</html>
